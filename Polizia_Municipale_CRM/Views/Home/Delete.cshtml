@@ -1,0 +1,34 @@
+﻿@model Polizia_Municipale_CRM.Models.Gestionale
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="card mt-4 m-auto card-top" style="width: 35rem;">
+    <div class="card-header">
+        <h5>Elimina scheda</h5> 
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Cognome @Model.Nome </h5>
+        @Html.HiddenFor(model => model.IDTrasgressore)
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Indirizzo: </strong> @Model.Indirizzo - @Model.CAP @Model.Citta</li>
+                <li class="list-group-item"><strong>Verbale nr: </strong>@Model.IDVerbale</li>
+                <li class="list-group-item"><strong>del: </strong>@Model.DataVerbale.ToShortDateString()</li>
+                <li class="list-group-item"><strong>Violazione del: </strong>@Model.DataViolazione.ToShortDateString()</li>
+                <li class="list-group-item"><strong>@Model.Descrizione</strong></li>
+                <li class="list-group-item"><strong>Importo: </strong>@Model.Importo.ToString("c2")</li>
+                <li class="list-group-item"><strong>Punti Decurtati: </strong>@Model.Punti</li>
+
+    </ul>
+    <div class="card-body card-bottom">
+        <p style="font-size: 17px; font-weight: 500">
+            Sicuro di voler cancellare la scheda?
+            <br /> Cancellando l'utente verranno eliminati anche i relativi verbali
+        </p>
+        @Html.ActionLink("Elimina Scheda", "DeleteCustomer", new { id = Model.IDTrasgressore }) |
+        @Html.ActionLink("Registro Trasgressori", "Trasgressori")
+    </div>
+</div>
+

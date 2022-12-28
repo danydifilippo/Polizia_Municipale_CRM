@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Polizia_Municipale_CRM.Models.Gestionale>
+
+@{
+    ViewBag.Title = "Trasgressori";
+}
+
+<div class="container mt-4">
+    <h3>Registro Trasgressori</h3>
+
+    <p>
+        <button class="btn btn-outline-primary" onclick="location.href='Create'"><i class="bi bi-node-plus-fill"> </i>Inserisci Nuova Anagrafica</button>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDTrasgressore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cognome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Indirizzo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CF)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDTrasgressore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cognome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Indirizzo) - @Html.DisplayFor(modelItem => item.CAP) @Html.DisplayFor(modelItem => item.Citta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CF)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        @Html.ActionLink("Modifica", "Edit", new { id = item.IDTrasgressore })
+                    </button>
+
+                </td>
+                <td>
+                    <button type ="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        @Html.ActionLink("Cancella","Delete", new { id = item.IDTrasgressore })
+                        </button>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
