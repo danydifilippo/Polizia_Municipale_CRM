@@ -4,36 +4,40 @@
     ViewBag.Title = "Violazioni";
 }
 
-<h2>Violazioni</h2>
+<div class="container mt-3">
+    <h2>Violazioni</h2>
 
-<p>
-    @Html.ActionLink("Inserisci nuova violazione", "CreateViolation")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IDViolazione)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descrizione)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Importo)
-        </th>
-    </tr>
+    <button class="btn btn-outline-primary" onclick="location.href='CreateViolation'">
+        <i class="bi bi-node-plus-fill"> </i>Inserisci nuova violazione
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDViolazione)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descrizione)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Importo)
-        </td>
-    </tr>
-}
+    </button>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDViolazione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descrizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImportoCollapse)
+            </th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDViolazione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descrizione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Importo)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

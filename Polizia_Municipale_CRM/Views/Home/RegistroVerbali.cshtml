@@ -2,66 +2,63 @@
 @{
     ViewBag.Title = "RegistroVerbali";
 }
-
-<h4>Registro Verbali</h4>
-<h5>Nr_Verbali al @DateTime.Today.ToShortDateString() : @Model.Tot_Verbali</h5>
-<div class="container-fluid mt-4">
-    <div class="row mt-5 mb-5">
-        <div class="col-6">
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Verbali trascritti per trasgressore
-            </a>
-        </div>
-        <div class="col-6">
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Verbali trascritti per punti decurtati
-            </a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="collapse col-6" id="collapse1">
-            <div class="card card-body">
-                @{
-                    Html.RenderAction("PartialViewTrasgressore");
-                }
+<div class="container mt-3" style="height:100%; width:1300px">
+    <h2>Registro Verbali</h2>
+    <h5>Verbali al @DateTime.Today.ToShortDateString() : @Model.Tot_Verbali</h5>
+        <div class="row mt-2 mb-2">
+            <div class="col-6">
+                <a class="btn btn-primary w-100" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Verbali trascritti per trasgressore
+                </a>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-primary w-100" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Verbali trascritti per punti decurtati
+                </a>
             </div>
         </div>
-        <div class="collapse col-6" id="collapse2">
-            <div class="card card-body">
-                @{
-                    Html.RenderAction("PartialViewPunti");
-                }
+        <div class="row">
+            <div class="collapse col-6" id="collapse1">
+                <div class="card card-body">
+                    @{
+                        Html.RenderAction("PartialViewTrasgressore");
+                    }
+                </div>
+            </div>
+            <div class="collapse col-6" id="collapse2">
+                <div class="card card-body">
+                    @{
+                        Html.RenderAction("PartialViewPunti");
+                    }
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-6">
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Verbali che superano i 10 punti decurtati
-            </a>
-        </div>
-        <div class="col-6">
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Verbali che superano i 400€
-            </a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="collapse col-6" id="collapse3">
-            <div class="card card-body">
-                @{
-                    Html.RenderAction("PartialViewPunti10");
-                }
+        <div class="row mt-2 mb-2">
+            <div class="col-6">
+                <a class="btn btn-primary w-100" data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Verbali che superano i 10 punti decurtati
+                </a>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-primary w-100" data-bs-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Verbali che superano i 400€
+                </a>
             </div>
         </div>
-        <div class="collapse col-6" id="collapse4">
-            <div class="card card-body">
-                @{
-                    Html.RenderAction("PartialViewImporto");
-                }
+        <div class="row">
+            <div class="collapse col-6" id="collapse3">
+                <div class="card card-body">
+                    @{
+                        Html.RenderAction("PartialViewPunti10");
+                    }
+                </div>
+            </div>
+            <div class="collapse col-6" id="collapse4">
+                <div class="card card-body">
+                    @{
+                        Html.RenderAction("PartialViewImporto");
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
