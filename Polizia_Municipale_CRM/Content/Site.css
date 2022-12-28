@@ -4,12 +4,18 @@
 }
 
 .container {
-    width: 900px;
+    max-width: 900px;
+    height:100vh;
+}
+
+container-fluid {
+    max-width: 1200px;
+    height:100vh;
 }
 
 .navbar, .navbar-brand {
-    padding:0;
-    margin:0
+    padding: 0;
+    margin: 0
 }
 
 a {
@@ -48,4 +54,8 @@ a {
 
 .borders {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+label {
+    display: inline
 }

@@ -31,16 +31,28 @@ namespace Polizia_Municipale_CRM.Models
         public string CF { get; set; }
         public string Agente { get; set; }
         public string Descrizione { get; set; }
+
+        [Display(Name = "Inserire importo come da codice violazione riportata sopra. Se diverso inserire nuovo importo")]
         public decimal Importo { get; set; }
 
         [Display(Name = "Punti Decurtati")]
         public int Punti { get; set; }
 
         [Display(Name = "Data Violazione")]
+        [DisplayFormat(DataFormatString ="{0:d}")]
         public DateTime DataViolazione { get; set; }
 
         [Display(Name = "Data Verbale")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime DataVerbale { get; set; }
+
+        public int Nr_Verbali { get; set; }
+
+        [Display(Name = "Importo")]
+        public decimal ImportoCollapse { get; set; }
+        
+        public int Tot_Verbali { get; set; }
+
 
         public static List<Gestionale> GetAllData()
         {
@@ -84,16 +96,12 @@ namespace Polizia_Municipale_CRM.Models
                     };
                     lista.Add(g);
                 }
-
             }
             catch (Exception ex)
             {
-
+               
             }
-            finally
-            {
                 sql.Close();
-            }
 
             return lista;
         }
@@ -126,16 +134,13 @@ namespace Polizia_Municipale_CRM.Models
                     };
                     lista.Add(g);
                 }
-
+                
             }
             catch (Exception ex)
             {
 
             }
-            finally
-            {
                 sql.Close();
-            }
 
             return lista;
         }
@@ -180,13 +185,59 @@ namespace Polizia_Municipale_CRM.Models
             }
             catch (Exception ex)
             {
-
+                
             }
-            finally
-            {
-                sql.Close();
-            }
+            sql.Close();
             return g;
+        }
+
+        public static List<SelectListItem> ListaViolazioni
+        {
+            get
+            {
+                List<SelectListItem> selectViolation = new List<SelectListItem>();
+                SqlConnection sql = Shared.GetConnection();
+                sql.Open();
+                SqlCommand com = Shared.GetCommand("SELECT * FROM VIOLAZIONE", sql);
+
+                SqlDataReader reader = com.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    SelectListItem l = new SelectListItem
+                    {
+                        Text = reader["Descrizione"].ToString() + " " + Convert.ToDecimal(reader["Importo"]) + "€",
+                        Value = reader["IDViolazione"].ToString(),
+                    };
+                    selectViolation.Add(l);
+                }
+                sql.Close();
+                return selectViolation;
+            }
+        }
+        public static List<SelectListItem> ListaUtenti
+        {
+            get
+            {
+                List<SelectListItem> selectUser = new List<SelectListItem>();
+                SqlConnection sql = Shared.GetConnection();
+                sql.Open();
+                SqlCommand com = Shared.GetCommand("SELECT IDTrasgressore, Cognome, Nome FROM TRASGRESSORE", sql);
+
+                SqlDataReader reader = com.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    SelectListItem l = new SelectListItem
+                    {
+                        Text = reader["Cognome"].ToString() + " " + reader["Nome"].ToString(),
+                        Value = reader["IDTrasgressore"].ToString(),
+                    };
+                    selectUser.Add(l);
+                }
+                sql.Close();
+                return selectUser;
+            }
         }
     }
 }

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Polizia_Municipale_CRM.Models.Gestionale>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImportoCollapse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Punti)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cognome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataViolazione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImportoCollapse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Punti)
+        </td>
+    </tr>
+}
+
+</table>

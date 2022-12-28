@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Polizia_Municipale_CRM.Models.Gestionale>
+
+@{
+    ViewBag.Title = "Verbali";
+}
+
+<h2>Verbali</h2>
+
+<p>
+    @Html.ActionLink("Inserisci Verbale", "Ins_Verbale")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDVerbale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ind_Violazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Agente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Punti)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataVerbale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nr_Verbali)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImportoCollapse)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDVerbale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cognome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ind_Violazione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Agente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Punti)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataViolazione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataVerbale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImportoCollapse)
+        </td>
+    </tr>
+}
+
+</table>

@@ -203,6 +203,15 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\CreateNotice.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\RegistroVerbali.cshtml" />
+    <Content Include="Views\Home\_PartialViewTrasgressore.cshtml" />
+    <Content Include="Views\Home\_PartialViewPunti10.cshtml" />
+    <Content Include="Views\Home\_PartialViewImporto.cshtml" />
+    <Content Include="Views\Home\_PartialViewPunti.cshtml" />
+    <Content Include="Views\Home\Verbali.cshtml" />
+    <Content Include="Views\Home\Ins_Verbale.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

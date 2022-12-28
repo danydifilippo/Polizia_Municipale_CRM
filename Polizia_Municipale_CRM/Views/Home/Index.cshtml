@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <button type="button" class="btn btn-outline-primary">
+        @Html.ActionLink("Anag.Trasgressori", "Trasgressori", "Home", htmlAttributes: new { @class = "text-white text-decoration-none nav-link active" })
+    </button>
+    <button type="button" class="btn btn-outline-secondary">
+        @Html.ActionLink("Codici & Violazioni", "Violazioni", "Home", htmlAttributes: new { @class = "text-white text-decoration-none nav-link" })
+    </button>
+    <button type="button" class="btn btn-outline-success">
+        @Html.ActionLink("Ins.Verbale", "Verbali", "Home", htmlAttributes: new { @class = "text-white text-decoration-none nav-link" })
+    </button>
+    <button type="button" class="btn btn-outline-danger">
+        @Html.ActionLink("Registro Verbali", "RegistroVerbali", "Home", htmlAttributes: new { @class = "text-white text-decoration-none nav-link" })
+    </button>
+
+</div>
+
