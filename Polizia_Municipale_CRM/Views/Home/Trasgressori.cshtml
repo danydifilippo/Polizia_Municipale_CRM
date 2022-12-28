@@ -49,13 +49,13 @@
                     @Html.DisplayFor(modelItem => item.CF)
                 </td>
                 <td>
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        @Html.ActionLink("Modifica", "Edit", new { id = item.IDTrasgressore })
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        @Html.ActionLink("Modifica", "Edit", new { id = item.IDTrasgressore }, htmlAttributes: new { @class = "text-decoration-none" })
                     </button>
                 </td>
                 <td>
-                    <button type ="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        @Html.ActionLink("Cancella","Delete", new { id = item.IDTrasgressore })
+                    <button type ="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        @Html.ActionLink("Cancella","Delete", new { id = item.IDTrasgressore }, htmlAttributes: new { @class = "text-decoration-none" })
                         </button>
                 </td>
             </tr>

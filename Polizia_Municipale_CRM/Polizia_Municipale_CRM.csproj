@@ -212,6 +212,8 @@
     <Content Include="Views\Home\Verbali.cshtml" />
     <Content Include="Views\Home\Ins_Verbale.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Violazioni.cshtml" />
+    <Content Include="Views\Home\CreateViolation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

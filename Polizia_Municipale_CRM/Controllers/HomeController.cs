@@ -32,6 +32,13 @@ namespace Polizia_Municipale_CRM.Controllers
             return View(ListaVerbali);
         }
 
+        public ActionResult Violazioni()
+        {
+            List<Gestionale> ListaViolazioni = Gestionale.GetAllData();
+
+            return View(ListaViolazioni);
+        }
+
         public ActionResult Ins_Verbale()
         {
             ViewBag.listaCodici = Gestionale.ListaViolazioni;
@@ -71,6 +78,40 @@ namespace Polizia_Municipale_CRM.Controllers
             }
 
             return RedirectToAction("Verbali");
+        }
+
+        public ActionResult CreateViolation()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateViolation(Gestionale t)
+        {
+
+            SqlConnection sql = Shared.GetConnection();
+
+            try
+            {
+                sql.Open();
+
+                SqlCommand com = Shared.GetStoreProcedure("CreateNewViolation", sql);
+
+                com.Parameters.AddWithValue("Descrizione", t.Descrizione);
+                com.Parameters.AddWithValue("Importo", t.Importo);
+              
+                int row = com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                sql.Close();
+            }
+
+            return RedirectToAction("Violazioni");
         }
 
         public ActionResult Create()

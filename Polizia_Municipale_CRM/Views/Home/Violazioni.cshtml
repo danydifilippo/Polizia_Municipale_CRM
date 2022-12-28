@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Polizia_Municipale_CRM.Models.Gestionale>
+
+@{
+    ViewBag.Title = "Violazioni";
+}
+
+<h2>Violazioni</h2>
+
+<p>
+    @Html.ActionLink("Inserisci nuova violazione", "CreateViolation")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importo)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDViolazione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Importo)
+        </td>
+    </tr>
+}
+
+</table>

@@ -17,14 +17,11 @@ container-fluid {
     margin: 0
 }
 
-a {
-    text-decoration: none;
-    color: #004a81;
-}
 
 :root {
     --bs-primary: #004a81;
     --bs-primary-rgb: 0, 74, 129;
+    --bs-link-hover-color: white
 }
 
 .btn-outline-primary {
